@@ -8,7 +8,8 @@ prompt = [{"role": "system", "content": "I am an excelent linquist. The task is 
           {"role": "user", "content": "Input: Only France and Britain backed Fischler's proposal."},
           {"role": "assistant", "content": "Output: Only @@France## and @@Britain## backed Fischler's proposal."},
           {"role": "user", "content": "Germany imported 47,600 sheep from Britain last year, nearly half of total imports."},
-          {"role": "assistant", "content": "Output: @@Germany## imported 47,600 sheep from @@Britain## last year, nearly half of total imports."}
+          {"role": "assistant", "content": "Output: @@Germany## imported 47,600 sheep from @@Britain## last year, nearly half of total imports."},
+          {"role": "user", "content": "Input:China says Taiwan spoils atmosphere for talks."}
           ]
 
 # Select the model and INVOKE IT - be sure that Ollama is running
@@ -17,6 +18,6 @@ model_instance = ChatOllama(
     model="gemma3:27b",
     temperature=0)
 
-response = model_instance.invoke(prompt.append({"role": "user", "content": "Input:China says Taiwan spoils atmosphere for talks."}))
+response = model_instance.invoke(prompt)
 
 print(response.content)
